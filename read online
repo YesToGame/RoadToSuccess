@@ -1,0 +1,14 @@
+<%@ LANGUAGE="VBSCRIPT" %>
+<%
+'fetch("webpage.htm")
+	sub fetch(file)
+		Dim x
+		Set fso = Server.CreateObject("Scripting.FileSystemObject")
+		set fs = fso.OpenTextFile(Server.MapPath(file), 1, true)
+			Do Until fs.AtEndOfStream
+			x = fs.ReadLine
+			Response.Write x
+			Loop
+		fs.close: set fs = nothing
+	end sub
+%>
